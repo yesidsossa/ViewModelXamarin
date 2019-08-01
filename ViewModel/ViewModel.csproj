@@ -113,9 +113,6 @@
     <Compile Include="ViewModel\Invoker.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\StatusObserver.cs" />
-    <Compile Include="ViewModel\IOnNextListener.cs" />
-    <Compile Include="ViewModel\IOnErrorListener.cs" />
-    <Compile Include="ViewModel\IOnCompleteListener.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

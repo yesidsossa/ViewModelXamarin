@@ -1,31 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net.Http;
-using Android.Util;
 using Newtonsoft.Json;
 
 namespace ViewModel
 {
-    public class ItemViewModel : BaseViewModel<List<Item>>, IOnNextListener<List<Item>>, IOnErrorListener
+    public class ItemViewModel : BaseViewModel<List<Item>>
     {
-        private readonly string Tag = "Observable";
-
-        public ItemViewModel()
-        {
-            SetOnNextListener(this);
-            SetOnErrorListener(this);
-        }
-
-        public void OnErrorListener(Exception error)
-        {
-            OnErrorAction?.Invoke(error);
-        }
-
-        public void OnNextListener(List<Item> value)
-        {
-            OnNextAction?.Invoke(value);
-        }
-
         protected override List<Item> LoadInBackground()
         {
             HttpClient client = new HttpClient();

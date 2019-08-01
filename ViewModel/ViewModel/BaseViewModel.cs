@@ -14,10 +14,6 @@ namespace ViewModel
         public Action OnCompleteAction;
 
         public StatusObserver Status { get; private set; }
-
-        private IOnNextListener<T> NextListener;
-        private IOnErrorListener ErrorListener;
-        private IOnCompleteListener CompleteListener;
         private IObservable<T> observable;
 
         public BaseViewModel()
@@ -26,21 +22,6 @@ namespace ViewModel
         }
 
         protected abstract T LoadInBackground();
-
-        protected void SetOnNextListener(IOnNextListener<T> nextListener)
-        {
-            NextListener = nextListener;
-        }
-
-        protected void SetOnErrorListener(IOnErrorListener errorListener)
-        {
-            ErrorListener = errorListener;
-        }
-
-        protected void SetOnCompleteListener(IOnCompleteListener completeListener)
-        {
-            CompleteListener = completeListener;
-        }
 
         public virtual void InitObserver()
         {
@@ -60,18 +41,18 @@ namespace ViewModel
         public void OnNext(T value)
         {
             Status = StatusObserver.Ready;
-            NextListener?.OnNextListener(value);
+            OnNextAction?.Invoke(value);
         }
 
         public void OnError(Exception error)
         {
             Status = StatusObserver.Failed;
-            ErrorListener?.OnErrorListener(error);
+            OnErrorAction?.Invoke(error);
         }
 
         public void OnCompleted()
         {
-            CompleteListener?.OnCompleteListener();
+            OnCompleteAction?.Invoke();
         }
     }
 }
