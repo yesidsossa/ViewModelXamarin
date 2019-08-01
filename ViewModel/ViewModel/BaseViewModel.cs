@@ -21,20 +21,9 @@ namespace ViewModel
             Status = StatusObserver.InProgress;
         }
 
-        protected abstract T LoadInBackground();
-
         public virtual void InitObserver()
         {
-            observable = Observable.Create<T>(observer => {
-                var cancel = new CancellationDisposable();
-
-                T response = LoadInBackground();
-
-                observer.OnNext(response);
-                observer.OnCompleted();
-
-                return cancel;
-            });
+            observable = Observable.Create(FunctionToExecute());
             observable.SubscribeOn(new NewThreadScheduler()).ObserveOn(Application.SynchronizationContext).Subscribe(this);
         }
 
@@ -53,6 +42,23 @@ namespace ViewModel
         public void OnCompleted()
         {
             OnCompleteAction?.Invoke();
+        }
+
+        protected abstract T LoadInBackground();
+
+        private Func<IObserver<T>, IDisposable> FunctionToExecute()
+        {
+            return observer =>
+            {
+                var cancel = new CancellationDisposable();
+
+                T response = LoadInBackground();
+
+                observer.OnNext(response);
+                observer.OnCompleted();
+
+                return cancel;
+            };
         }
     }
 }
