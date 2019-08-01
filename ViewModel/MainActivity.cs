@@ -8,17 +8,21 @@ using Android.Support.V4.App;
 using Android.Widget;
 using ViewModel.ViewModel;
 using System;
+using Android.Util;
 
 namespace ViewModel
 {
     [Activity(Label = "ViewModel", MainLauncher = true, Icon = "@mipmap/ic_resource")]
-	public class MainActivity : FragmentActivity, IThreadObserver
+	public class MainActivity : FragmentActivity, IReceptor
     {
-		ItemViewModel ViewModel;
+        private const string Tag = "Observable";
+
+        ItemViewModel ViewModel;
 		RecyclerView RecyclerView;
         ProgressBar progress;
+        private IInvoker invoker;
 
-		protected override void OnCreate(Bundle savedInstanceState)
+        protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
 			SetContentView(Resource.Layout.Main);
@@ -28,20 +32,26 @@ namespace ViewModel
 			RecyclerView.SetLayoutManager(new LinearLayoutManager(this));
 
 			ViewModel = ViewModelProviders.Of(this).Get(Java.Lang.Class.FromType(typeof(ItemViewModel))) as ItemViewModel;
+
+            invoker = new Invoker(this);
+            invoker.AddViewModel(ViewModel, Response, Error);
             ViewModel.InitObserver();
-            ViewModel.OnItems += Response;
         }
 
-        private void Response(object sender, List<Item> e)
+        private void Error(Exception ex)
         {
+            Log.Debug(Tag, "respuesta en OnError");
+            System.Diagnostics.Debug.WriteLine("respuesta en OnError");
+        }
+
+        private void Response(List<Item> e)
+        {
+            Log.Debug(Tag, "respuesta en onNext");
+            System.Diagnostics.Debug.WriteLine("respuesta en onNext");
+
             RecyclerView.SetAdapter(new ItemAdapter { List = e });
             progress.Visibility = ViewStates.Gone;
         }
-
-        protected override void OnStart()
-		{
-			base.OnStart();
-		}
 
         public void Complete()
         {

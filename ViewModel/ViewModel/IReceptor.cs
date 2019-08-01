@@ -1,7 +1,7 @@
 ﻿using System;
 namespace ViewModel.ViewModel
 {
-    public interface IThreadObserver
+    public interface IReceptor
     {
         void Complete();
     }

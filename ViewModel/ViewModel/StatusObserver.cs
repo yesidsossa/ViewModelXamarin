@@ -2,7 +2,7 @@
 {
     public enum StatusObserver
     {
-        Process,
+        InProgress,
         Ready,
         Failed
     }

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Reactive.Concurrency;
+using System.Reactive.Disposables;
 using System.Reactive.Linq;
-using System.Reactive.Subjects;
 using Android.App;
 using ViewModel.ViewModel;
 
@@ -9,37 +9,69 @@ namespace ViewModel
 {
     public abstract class BaseViewModel<T> : Android.Arch.Lifecycle.ViewModel, IObserver<T>
     {
-        public Action<T> OnNext;
-        public Action<Exception> OnError;
-        public Action OnComplete;
+        public Action<T> OnNextAction;
+        public Action<Exception> OnErrorAction;
+        public Action OnCompleteAction;
 
         public StatusObserver Status { get; private set; }
 
-        protected abstract Func<IObserver<T>, IDisposable> LoadInBackground { get; }
-
+        private IOnNextListener<T> NextListener;
+        private IOnErrorListener ErrorListener;
+        private IOnCompleteListener CompleteListener;
         private IObservable<T> observable;
+
+        public BaseViewModel()
+        {
+            Status = StatusObserver.InProgress;
+        }
+
+        protected abstract T LoadInBackground();
+
+        protected void SetOnNextListener(IOnNextListener<T> nextListener)
+        {
+            NextListener = nextListener;
+        }
+
+        protected void SetOnErrorListener(IOnErrorListener errorListener)
+        {
+            ErrorListener = errorListener;
+        }
+
+        protected void SetOnCompleteListener(IOnCompleteListener completeListener)
+        {
+            CompleteListener = completeListener;
+        }
 
         public virtual void InitObserver()
         {
-            observable = Observable.Create(LoadInBackground);
+            observable = Observable.Create<T>(observer => {
+                var cancel = new CancellationDisposable();
+
+                T response = LoadInBackground();
+
+                observer.OnNext(response);
+                observer.OnCompleted();
+
+                return cancel;
+            });
             observable.SubscribeOn(new NewThreadScheduler()).ObserveOn(Application.SynchronizationContext).Subscribe(this);
         }
 
-        void IObserver<T>.OnNext(T value)
+        public void OnNext(T value)
         {
-            ExecuteOnNext(value);
+            Status = StatusObserver.Ready;
+            NextListener?.OnNextListener(value);
         }
 
-        void IObserver<T>.OnError(Exception error)
+        public void OnError(Exception error)
         {
-            // No implemented
+            Status = StatusObserver.Failed;
+            ErrorListener?.OnErrorListener(error);
         }
 
         public void OnCompleted()
         {
-            // No implemented
+            CompleteListener?.OnCompleteListener();
         }
-
-        protected abstract void ExecuteOnNext(T value);
     }
 }
