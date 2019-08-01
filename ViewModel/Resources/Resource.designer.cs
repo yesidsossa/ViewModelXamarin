@@ -1858,11 +1858,11 @@ namespace ViewModel
 			// aapt resource value: 0x7f070028
 			public const int META = 2131165224;
 			
-			// aapt resource value: 0x7f07007c
-			public const int Name = 2131165308;
+			// aapt resource value: 0x7f07007d
+			public const int Name = 2131165309;
 			
-			// aapt resource value: 0x7f070067
-			public const int RecyclerView = 2131165287;
+			// aapt resource value: 0x7f070068
+			public const int RecyclerView = 2131165288;
 			
 			// aapt resource value: 0x7f070029
 			public const int SHIFT = 2131165225;
@@ -1870,8 +1870,8 @@ namespace ViewModel
 			// aapt resource value: 0x7f07002a
 			public const int SYM = 2131165226;
 			
-			// aapt resource value: 0x7f07006b
-			public const int action0 = 2131165291;
+			// aapt resource value: 0x7f07006c
+			public const int action0 = 2131165292;
 			
 			// aapt resource value: 0x7f070058
 			public const int action_bar = 2131165272;
@@ -1894,17 +1894,17 @@ namespace ViewModel
 			// aapt resource value: 0x7f070036
 			public const int action_bar_title = 2131165238;
 			
-			// aapt resource value: 0x7f070068
-			public const int action_container = 2131165288;
+			// aapt resource value: 0x7f070069
+			public const int action_container = 2131165289;
 			
 			// aapt resource value: 0x7f070059
 			public const int action_context_bar = 2131165273;
 			
-			// aapt resource value: 0x7f07006f
-			public const int action_divider = 2131165295;
+			// aapt resource value: 0x7f070070
+			public const int action_divider = 2131165296;
 			
-			// aapt resource value: 0x7f070069
-			public const int action_image = 2131165289;
+			// aapt resource value: 0x7f07006a
+			public const int action_image = 2131165290;
 			
 			// aapt resource value: 0x7f070003
 			public const int action_menu_divider = 2131165187;
@@ -1921,11 +1921,11 @@ namespace ViewModel
 			// aapt resource value: 0x7f070038
 			public const int action_mode_close_button = 2131165240;
 			
-			// aapt resource value: 0x7f07006a
-			public const int action_text = 2131165290;
+			// aapt resource value: 0x7f07006b
+			public const int action_text = 2131165291;
 			
-			// aapt resource value: 0x7f070078
-			public const int actions = 2131165304;
+			// aapt resource value: 0x7f070079
+			public const int actions = 2131165305;
 			
 			// aapt resource value: 0x7f070039
 			public const int activity_chooser_view_content = 2131165241;
@@ -1954,14 +1954,14 @@ namespace ViewModel
 			// aapt resource value: 0x7f07003f
 			public const int buttonPanel = 2131165247;
 			
-			// aapt resource value: 0x7f07006c
-			public const int cancel_action = 2131165292;
+			// aapt resource value: 0x7f07006d
+			public const int cancel_action = 2131165293;
 			
 			// aapt resource value: 0x7f07004f
 			public const int checkbox = 2131165263;
 			
-			// aapt resource value: 0x7f070074
-			public const int chronometer = 2131165300;
+			// aapt resource value: 0x7f070075
+			public const int chronometer = 2131165301;
 			
 			// aapt resource value: 0x7f07002c
 			public const int collapseActionView = 2131165228;
@@ -1990,8 +1990,8 @@ namespace ViewModel
 			// aapt resource value: 0x7f070023
 			public const int end = 2131165219;
 			
-			// aapt resource value: 0x7f07007a
-			public const int end_padder = 2131165306;
+			// aapt resource value: 0x7f07007b
+			public const int end_padder = 2131165307;
 			
 			// aapt resource value: 0x7f07003a
 			public const int expand_activities_button = 2131165242;
@@ -2011,8 +2011,8 @@ namespace ViewModel
 			// aapt resource value: 0x7f07003e
 			public const int icon = 2131165246;
 			
-			// aapt resource value: 0x7f070079
-			public const int icon_group = 2131165305;
+			// aapt resource value: 0x7f07007a
+			public const int icon_group = 2131165306;
 			
 			// aapt resource value: 0x7f07002d
 			public const int ifRoom = 2131165229;
@@ -2020,8 +2020,8 @@ namespace ViewModel
 			// aapt resource value: 0x7f07003b
 			public const int image = 2131165243;
 			
-			// aapt resource value: 0x7f070075
-			public const int info = 2131165301;
+			// aapt resource value: 0x7f070076
+			public const int info = 2131165302;
 			
 			// aapt resource value: 0x7f070035
 			public const int italic = 2131165237;
@@ -2041,11 +2041,11 @@ namespace ViewModel
 			// aapt resource value: 0x7f07003d
 			public const int list_item = 2131165245;
 			
-			// aapt resource value: 0x7f07006e
-			public const int media_actions = 2131165294;
+			// aapt resource value: 0x7f07006f
+			public const int media_actions = 2131165295;
 			
-			// aapt resource value: 0x7f07007b
-			public const int message = 2131165307;
+			// aapt resource value: 0x7f07007c
+			public const int message = 2131165308;
 			
 			// aapt resource value: 0x7f070024
 			public const int middle = 2131165220;
@@ -2062,17 +2062,20 @@ namespace ViewModel
 			// aapt resource value: 0x7f070011
 			public const int normal = 2131165201;
 			
-			// aapt resource value: 0x7f070077
-			public const int notification_background = 2131165303;
+			// aapt resource value: 0x7f070078
+			public const int notification_background = 2131165304;
+			
+			// aapt resource value: 0x7f070072
+			public const int notification_main_column = 2131165298;
 			
 			// aapt resource value: 0x7f070071
-			public const int notification_main_column = 2131165297;
-			
-			// aapt resource value: 0x7f070070
-			public const int notification_main_column_container = 2131165296;
+			public const int notification_main_column_container = 2131165297;
 			
 			// aapt resource value: 0x7f070041
 			public const int parentPanel = 2131165249;
+			
+			// aapt resource value: 0x7f070067
+			public const int progress = 2131165287;
 			
 			// aapt resource value: 0x7f070006
 			public const int progress_circular = 2131165190;
@@ -2083,11 +2086,11 @@ namespace ViewModel
 			// aapt resource value: 0x7f070051
 			public const int radio = 2131165265;
 			
-			// aapt resource value: 0x7f070076
-			public const int right_icon = 2131165302;
+			// aapt resource value: 0x7f070077
+			public const int right_icon = 2131165303;
 			
-			// aapt resource value: 0x7f070072
-			public const int right_side = 2131165298;
+			// aapt resource value: 0x7f070073
+			public const int right_side = 2131165299;
 			
 			// aapt resource value: 0x7f07001c
 			public const int screen = 2131165212;
@@ -2161,8 +2164,8 @@ namespace ViewModel
 			// aapt resource value: 0x7f07001f
 			public const int src_over = 2131165215;
 			
-			// aapt resource value: 0x7f07006d
-			public const int status_bar_latest_event_content = 2131165293;
+			// aapt resource value: 0x7f07006e
+			public const int status_bar_latest_event_content = 2131165294;
 			
 			// aapt resource value: 0x7f070052
 			public const int submenuarrow = 2131165266;
@@ -2188,8 +2191,8 @@ namespace ViewModel
 			// aapt resource value: 0x7f070045
 			public const int textSpacerNoTitle = 2131165253;
 			
-			// aapt resource value: 0x7f070073
-			public const int time = 2131165299;
+			// aapt resource value: 0x7f070074
+			public const int time = 2131165300;
 			
 			// aapt resource value: 0x7f07000f
 			public const int title = 2131165199;
